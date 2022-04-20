@@ -1,0 +1,15 @@
+fieldset
+  legend User Vars
+  each uvar, key in userVars
+    div
+      input(
+        type=uvar.type,
+        placeholder=uvar.placeholder,
+        id=key,
+        value=uvar.value,
+        class=uvar.class
+      )
+      label(for=key)= uvar.desc
+
+  button#save Save
+footer= "buildtime: " + buildtime

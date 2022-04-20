@@ -1,0 +1,70 @@
+---
+default_provider: google
+userVars:
+  zip:
+    desc: your zip code
+    placeholder: 12345
+    type: number
+  ISO6391:
+    desc: 2 letter language code (ISO 639)
+    default: en
+providers:
+  google:
+    aliases:
+      - g
+    url: https://www.google.com/search?q={{query|encodeURI}}
+  youtube:
+    aliases:
+      - y
+    url: https://www.youtube.com/results?search_query={{query|encodeURI}}
+  dhl:
+    url: https://www.dhl.de/de/privatkunden.html?piececode={{query|encodeURI}}
+  dpd:
+    url: https://my.dpd.de/redirect.aspx?action=1&parcelno={{query|encodeURI}}&zip={{zip}}
+  hermes:
+    url: https://www.myhermes.de/empfangen/sendungsverfolgung/sendungsinformation#{{query|encodeURI}}
+  shopping:
+    aliases: s
+    url: https://www.google.com/search?q={{query|encodeURI}}&tbm=shop
+  duckduckgo:
+    aliases:
+      - d
+      - dd
+      - ddg
+      - ddgo
+    url: https://duckduckgo.com/?q={{query|encodeURI}}
+  ssllabs:
+    aliases:
+      - ssl
+      - ssll
+      - ssllabs
+    url: https://www.ssllabs.com/ssltest/analyze.html?viaform=on&d={{query|encodeURI}}
+
+  wikipediade:
+    aliases:
+      - wd
+      - wde
+      - w
+    url: https://de.wikipedia.org/w/index.php?search={{query|encodeURI}}&title=Spezial%3ASuche&go=Artikel
+  bing:
+    aliases:
+      - b
+    url: https://www.bing.com/search?q={{query|encodeURI}}
+  php:
+    aliases:
+      - p
+    url: https://www.php.net/manual-lookup.php?pattern={{query|encodeURI}}&scope=quickref&lang={{ISO6391}}
+  amazon:
+    aliases:
+      - a
+      - ama
+    url: https://www.amazon.de/s?k={{query|encodeURI}}
+  dict:
+    url: https://www.dict.cc/?s={{query|encodeURI}}
+  packagist:
+    url: https://packagist.org/?query=f{{query|encodeURI}}
+    aliases:
+      - pp
+      - pack
+  ups:
+    url: http://wwwapps.ups.com/WebTracking/track?track=yes&trackNums={{query|encodeURI}}
